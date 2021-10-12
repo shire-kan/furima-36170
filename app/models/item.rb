@@ -10,9 +10,11 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   validates :title,
-            presence: true
+            presence: true,
+            length: { maximum: 40 }
   validates :content,
-            presence: true
+            presence: true,
+            length: { maximum: 1000 }
   validates :category_id,
             presence: true,
             numericality: { other_than: 1 }
