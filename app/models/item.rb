@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :condition
   belongs_to :deliverydays
-  belongs_to :method
+  belongs_to :shipping
   belongs_to :prefecture
 
   has_one_attached :image
@@ -19,7 +19,7 @@ class Item < ApplicationRecord
   validates :condition_id,
             presence: true,
             numericality: { other_than: 1 }
-  validates :method_id,
+  validates :shipping_id,
             presence: true,
             numericality: { other_than: 1 }
   validates :prefecture_id,
