@@ -44,12 +44,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
       it 'priceが300未満では出品できない' do
-        @item.price = '100'
+        @item.price = 100
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
       it 'priceが9999999を超えると出品できない' do
-        @item.price = '10000000'
+        @item.price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
       end
@@ -64,12 +64,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it 'category_idが1では出品できない' do
-        @item.category_id = '1'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Category must be greater than 1')
       end
       it 'category_idが11を超えると出品できない' do
-        @item.category_id = '12'
+        @item.category_id = 12
         @item.valid?
         expect(@item.errors.full_messages).to include('Category must be less than or equal to 11')
       end
@@ -79,12 +79,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
       it 'condition_idが1では出品できない' do
-        @item.condition_id = '1'
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Condition must be greater than 1')
       end
       it 'condition_idが7を超えると出品できない' do
-        @item.condition_id = '8'
+        @item.condition_id = 8
         @item.valid?
         expect(@item.errors.full_messages).to include('Condition must be less than or equal to 7')
       end
@@ -94,12 +94,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Shipping can't be blank")
       end
       it 'shipping_idが1では出品できない' do
-        @item.shipping_id = '1'
+        @item.shipping_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping must be greater than 1')
       end
       it 'shipping_idが3を超えると出品できない' do
-        @item.shipping_id = '4'
+        @item.shipping_id = 4
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping must be less than or equal to 3')
       end
@@ -109,12 +109,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it 'prefecture_idが1では出品できない' do
-        @item.prefecture_id = '1'
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture must be greater than 1')
       end
       it 'prefecture_idが49を超えると出品できない' do
-        @item.prefecture_id = '50'
+        @item.prefecture_id = 50
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture must be less than or equal to 49')
       end
@@ -124,12 +124,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Deliverydays can't be blank")
       end
       it 'deliverydays_idが1では出品できない' do
-        @item.deliverydays_id = '1'
+        @item.deliverydays_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Deliverydays must be greater than 1')
       end
       it 'deliverydays_idが4を超えると出品できない' do
-        @item.deliverydays_id = '5'
+        @item.deliverydays_id = 5
         @item.valid?
         expect(@item.errors.full_messages).to include('Deliverydays must be less than or equal to 4')
       end
