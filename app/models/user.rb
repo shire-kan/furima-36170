@@ -19,4 +19,6 @@ class User < ApplicationRecord
             format: { with: /\A[ァ-ヶー－]+\z/, message: 'must be full-width katakana' }
   validates :birthday, presence: true
   validates_format_of :password, { with: /([0-9].*[a-zA-Z]|[a-zA-Z].*[0-9])/, message: 'must be alphanumeric characters' }
+
+  has_many :items
 end
