@@ -60,15 +60,30 @@ RSpec.describe OrderResidence, type: :model do
         @order_residence.valid?
         expect(@order_residence.errors.full_messages).to include("Phone number can't be blank")
       end
-      it 'phone_numberが10または11桁の正しい形式でないと保存できないこと' do
+      it 'phone_numberが10桁未満では保存できないこと' do
         @order_residence.phone_number = '0000000'
         @order_residence.valid?
-        expect(@order_residence.errors.full_messages).to include('Phone number is invalid. Need 10 or 11 digits')
+        expect(@order_residence.errors.full_messages).to include('Phone number is invalid. Need numbers of 10 or 11 digits')
       end
       it 'tokenが空だと保存できないこと' do
         @order_residence.token = ''
         @order_residence.valid?
         expect(@order_residence.errors.full_messages).to include("Token can't be blank")
+      end
+      it 'prefectureに「---」が選択されている場合は購入できない' do
+        @order_residence.prefecture_id = 0
+        @order_residence.valid?
+        expect(@order_residence.errors.full_messages).to include("Prefecture is invalid. Input correct Prefecture")
+      end
+      it 'phone_numberが12桁以上では保存できないこと' do
+        @order_residence.phone_number = '000000000000'
+        @order_residence.valid?
+        expect(@order_residence.errors.full_messages).to include('Phone number is invalid. Need numbers of 10 or 11 digits')
+      end
+      it 'phone_numberに半角数字以外が含まれている場合は購入できない' do
+        @order_residence.phone_number = '000-000000'
+        @order_residence.valid?
+        expect(@order_residence.errors.full_messages).to include('Phone number is invalid. Need numbers of 10 or 11 digits')
       end
     end
   end
