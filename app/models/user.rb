@@ -21,4 +21,5 @@ class User < ApplicationRecord
   validates_format_of :password, { with: /([0-9].*[a-zA-Z]|[a-zA-Z].*[0-9])/, message: 'must be alphanumeric characters' }
 
   has_many :items
+  has_many :orders
 end
